@@ -61,12 +61,9 @@ li.blue {
     background: blue;
 }
 /*线宽*/
-#lineWidth{
-    position: absolute;
+#widthBox {
+    position: fixed;
     right: 10px;
     top: 10px;
-    border: 1px solid red;
 }
-label{
-    border: 1px solid red;
-}
+#widthBox>label{vertical-align: top}

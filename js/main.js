@@ -2,6 +2,7 @@ var canvas = byId("canvas");
 var context = canvas.getContext('2d');
 var usering = false;
 var eraserEnable = false;
+var lineWidth=3;
 
 
 /*1.画布大小 */
@@ -12,12 +13,13 @@ listernUser(canvas);
 switchPen();
 /*4.颜色切换 */
 switchColor();
-
+/*5.画笔粗细*/
+changeLineWidth(); 
 
 
 
 /************************************** 封装的函数 *********** */
-//1.通过id获取元素
+//1.获取元素
 function byId(id) {
     var element=undefined;
     if (document.getElementById(id)){
@@ -123,7 +125,7 @@ function drawCircle(x, y, radius) {
 //6.画线 
 function drawLine(x1, y1, x2, y2) {
     context.beginPath();
-    context.lineWidth = 5;
+    context.lineWidth = lineWidth;
     context.moveTo(x1, y1);
     context.lineTo(x2, y2);
     context.stroke();
@@ -159,8 +161,12 @@ function switchColor(){
    
 }
 
-//画笔粗细
-var lineWidth = byId('lineWidth');
-lineWidth.onchange=function(){
-    console.log(this.value);
+//9.画笔粗细
+function changeLineWidth(){
+    var lineWidthRange = byId('lineWidth');
+    lineWidthRange.onchange = function() {
+      console.log(this.value);
+
+      lineWidth = this.value;
+    };
 }
