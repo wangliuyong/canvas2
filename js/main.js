@@ -1,7 +1,7 @@
 var canvas = byId("canvas");
 var context = canvas.getContext('2d');
 var usering = false;
-var eraser = false;
+var eraserEnable = false;
 
 
 /*1.画布大小 */
@@ -10,6 +10,12 @@ setCanvasSize(canvas);
 listernUser(canvas);
 /*3.橡皮擦画笔切换 */
 switchPen();
+/*4.颜色切换 */
+switchColor();
+
+
+
+
 /************************************** 封装的函数 *********** */
 //1.通过id获取元素
 function byId(id) {
@@ -26,7 +32,7 @@ function setCanvasSize(canvas) {
     //视口尺寸改变事件
     window.onresize = function () {
         var pageWidth = document.documentElement.clientWidth;
-        var pageHeight = document.documentElement.clientHeight-15;
+        var pageHeight = document.documentElement.clientHeight;
 
         canvas.width = pageWidth;
         canvas.height = pageHeight;
@@ -42,10 +48,12 @@ function listernUser(canvas) {
     if (isTouchDevice()) {
       // on Mobile
       canvas.ontouchstart = function(event) {
+        //触屏支持多点触碰，每次触碰的坐标会存在touches这个数组里。
         var x = event.touches[0].clientX,
           y = event.touches[0].clientY;
         usering = true;
-        if (eraser) {
+        if (eraserEnable) {
+          context.strokeStyle="red";
           context.clearRect(x - 10, y - 10, 20, 20);
         } else {
           //drawCircle(x, y, 20);
@@ -57,7 +65,7 @@ function listernUser(canvas) {
           y = event.touches[0].clientY;
         var point2 = { x: x, y: y };
         if (usering) {
-          if (eraser) {
+          if (eraserEnable) {
             context.clearRect(x - 10, y - 10, 20, 20);
           } else {
             //drawCircle(x, y, 20);
@@ -75,7 +83,7 @@ function listernUser(canvas) {
         var x = event.clientX,
           y = event.clientY;
         usering = true;
-        if (eraser) {
+        if (eraserEnable) {
           context.clearRect(x - 10, y - 10, 20, 20);
         } else {
           //drawCircle(x, y, 20);
@@ -87,7 +95,7 @@ function listernUser(canvas) {
           y = event.clientY;
         var point2 = { x: x, y: y };
         if (usering) {
-          if (eraser) {
+          if (eraserEnable) {
             context.clearRect(x - 10, y - 10, 20, 20);
           } else {
             //drawCircle(x, y, 20);
@@ -123,16 +131,36 @@ function drawLine(x1, y1, x2, y2) {
 }
 //7.画笔橡皮擦的切换
 function switchPen() {
-    var box = byId("box");
-    var eraserButton = byId("eraser");
-    var penButton = byId("pen");
-    penButton.onclick = function () {
-        eraser = true;
-        box.className = "box2";
+    var eraser = byId('eraser');
+    var pen = byId('pen');
+    eraser.onclick=function(){
+        eraserEnable=true;
+        this.classList.add("active");
+        pen.classList.remove('active');
     }
-    eraserButton.onclick = function () {
-        eraser = false;
-        box.className = "box1";
-    };
+    pen.onclick=function(){
+        eraserEnable = false;
+        this.classList.add('active');
+        eraser.classList.remove('active');
+    }
+}
+//8.颜色切换
+function switchColor(){
+    var colorLi = document.getElementsByClassName("colorLi");
+    for (var i = 0; i < colorLi.length;i++){
+        colorLi[i].onclick = function() {
+          context.strokeStyle = this.id;
+            for (var j = 0; j < colorLi.length;j++){
+                colorLi[j].classList.remove('active');
+                this.classList.add('active');
+            }
+        };
+    }
+   
 }
 
+//画笔粗细
+var lineWidth = byId('lineWidth');
+lineWidth.onchange=function(){
+    console.log(this.value);
+}

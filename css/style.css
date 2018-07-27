@@ -1,24 +1,72 @@
+ ul,ol{list-style: none;}
+ *{margin: 0;padding: 0;}
+ 
  body{
      margin: 0;
      padding: 0;
      background: #ccc;
+     overflow: hidden;
  }
- 
+/*阿里巴巴图标引用*/
+.icon {
+    width: 1em;
+    height: 1em;
+    vertical-align: -0.15em;
+    fill: currentColor;
+    overflow: hidden;
+}
 #box {
      position: fixed;
-     bottom: 50%;
+     top: 0;
      left: 0;
+     padding: 15px;
  }
-
-.box1 .eraser{
-    display: none;
+#box >svg{
+    width: 1.5em;
+    height: 1.5em;
+    margin: 10px;
+    transition: all 0.5s;
 }
-.box1 .pen{display: block;}
 
-
-.box2 .eraser{
-    display: block;
+#box>svg.active{
+    transform: scale(1.5);
 }
-.box2 .pen{
-    display: none;
+/*画笔颜色*/
+.color{
+    position: absolute;
+    left: 20px;
+    top: 68px;
+    padding: 2px;
+}
+.color > li{
+    width: 20px;
+    height: 20px;
+    border: 1px solid red;
+    margin: 3px;
+    border-radius: 50%;
+}
+.color>li.active{
+    transform: scale(1.2);
+}
+li.black {
+    background: black;
+}
+li.red{
+    background: red;
+}
+li.yellow {
+    background: yellow;
+}
+li.blue {
+    background: blue;
+}
+/*线宽*/
+#lineWidth{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    border: 1px solid red;
+}
+label{
+    border: 1px solid red;
 }

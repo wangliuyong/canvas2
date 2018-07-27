@@ -4,15 +4,27 @@
 <meta charset="utf-8">
 <link rel="stylesheet" href="./css/style.css">
 <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+<script src="//at.alicdn.com/t/font_766895_bdxt6p0vk7.js"></script>
+
 <title>myCanvas</title>
 </head>
 <body>
 <canvas id="canvas" style="background:#fff"></canvas>
 <div class="box1" id="box">
-    <button class="eraser" id="eraser">橡皮擦</button>
-    <button class="pen" id="pen">画笔</button>
+    <svg class="icon eraser" aria-hidden="true" id="eraser">
+        <use xlink:href="#icon-eraser"></use>
+    </svg>
+    <svg class="icon pen active" aria-hidden="true" id="pen">
+        <use xlink:href="#icon-xinfuben"></use>
+    </svg>
 </div>
-
+<ol class="color">
+    <li class="colorLi black active" id="black"></li>
+    <li class="colorLi red" id="red"></li>
+    <li class="colorLi yellow" id="yellow"></li>
+    <li class="colorLi blue" id="blue"></li>
+</ol>
+   <label for="lineWidth">画笔粗细</label><input type="range" name="lineWidth" id="lineWidth">
 <script src="./js/main.js"></script>
 </body>
 </html>
