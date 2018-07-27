@@ -1,0 +1,24 @@
+ body{
+     margin: 0;
+     padding: 0;
+     background: #ccc;
+ }
+ 
+#box {
+     position: fixed;
+     bottom: 50%;
+     left: 0;
+ }
+
+.box1 .eraser{
+    display: none;
+}
+.box1 .pen{display: block;}
+
+
+.box2 .eraser{
+    display: block;
+}
+.box2 .pen{
+    display: none;
+}
