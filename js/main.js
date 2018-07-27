@@ -26,7 +26,7 @@ function setCanvasSize(canvas) {
     //视口尺寸改变事件
     window.onresize = function () {
         var pageWidth = document.documentElement.clientWidth;
-        var pageHeight = document.documentElement.clientHeight;
+        var pageHeight = document.documentElement.clientHeight-15;
 
         canvas.width = pageWidth;
         canvas.height = pageHeight;
