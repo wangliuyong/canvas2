@@ -197,6 +197,7 @@ function saveCanvas() {
     document.body.appendChild(a);
     a.download = "myCanvas";
     a.href = url;
+    a.target="_blank";
     a.click()
   }
 }
