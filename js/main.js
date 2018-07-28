@@ -13,9 +13,6 @@ document.body.ontouchstart=function(event){
 */
 context.fillStyle = "blue";
 context.fillRect(0, 0, canvas.width, canvas.height);
-
-
-
 /*1.画布大小 */
 setCanvasSize(canvas);
 /*2鼠标活动 */
