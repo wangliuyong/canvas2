@@ -11,8 +11,7 @@ document.body.ontouchstart=function(event){
   event.preventDefault();
 }
 */
-context.fillStyle = "blue";
-context.fillRect(0, 0, canvas.width, canvas.height);
+
 /*1.画布大小 */
 setCanvasSize(canvas);
 /*2鼠标活动 */
@@ -198,3 +197,6 @@ function saveCanvas() {
     a.click()
   }
 }
+//Draw Canvas Fill mode
+context.fillStyle = "#fff";
+context.fillRect(0, 0, canvas.width, canvas.height);
