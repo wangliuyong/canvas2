@@ -47,7 +47,7 @@
 .color > li{
     width: 20px;
     height: 20px;
-    margin: 12px 0;
+    margin: 14px 0;
     border-radius: 50%;
 }
 .color>li.active{
