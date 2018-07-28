@@ -11,8 +11,6 @@ document.body.ontouchstart=function(event){
 	event.preventDefault();
 }
 */
-
-
 /*1.画布大小 */
 setCanvasSize(canvas);
 /*1.1画布背景颜色*/
