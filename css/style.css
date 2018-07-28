@@ -63,7 +63,7 @@ li.blue {
 /*线宽*/
 #widthBox {
     position: fixed;
-    right: 10px;
-    top: 10px;
+    right: 20px;
+    top: 20px;
 }
 #widthBox>label{vertical-align: top}

@@ -165,8 +165,12 @@ function switchColor(){
 function changeLineWidth(){
     var lineWidthRange = byId('lineWidth');
     lineWidthRange.onchange = function() {
-      console.log(this.value);
-
       lineWidth = this.value;
     };
+}
+//清屏
+
+var clear = byId('clear');
+clear.onclick=function(){
+    context.clearRect(0,0,2000,2000);
 }
