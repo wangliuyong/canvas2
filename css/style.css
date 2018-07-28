@@ -35,7 +35,7 @@
 }
 /*画笔颜色*/
 .color{
-    position: absolute;
+    position: fixed;
     left: 20px;
     top: 68px;
     padding: 2px;
@@ -67,6 +67,6 @@ li.blue {
 #widthBox {
     position: fixed;
     right: 20px;
-    top: 20px;
+    bottom: 20px;
 }
 #widthBox>label{vertical-align: top}
