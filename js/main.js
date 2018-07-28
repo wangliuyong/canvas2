@@ -4,6 +4,11 @@ var usering = false;
 var eraserEnable = false;
 var lineWidth=3;
 
+context.fillRect(25, 25, 100, 100);
+
+
+
+
 
 /*1.画布大小 */
 setCanvasSize(canvas);
@@ -15,8 +20,10 @@ switchPen();
 switchColor();
 /*5.画笔粗细*/
 changeLineWidth(); 
-
-
+/*6.清屏*/
+clearScreen(canvas);
+/*7.保存画板*/
+saveCanvas();
 
 /************************************** 封装的函数 *********** */
 //1.获取元素
@@ -168,9 +175,22 @@ function changeLineWidth(){
       lineWidth = this.value;
     };
 }
-//清屏
-
-var clear = byId('clear');
-clear.onclick=function(){
-    context.clearRect(0,0,2000,2000);
+//10.清屏
+function clearScreen(canvas) {
+  var clear = byId("clear");
+  clear.onclick = function() {
+    context.clearRect(0, 0, canvas.width, canvas.height);
+  };
+}
+//11.保存画板
+function saveCanvas() {
+  var download = byId('download');
+  download.onclick = function () {
+    var url = canvas.toDataURL("image/png");
+    var a = document.createElement('a');
+    document.body.appendChild(a);
+    a.download = "myCanvas";
+    a.href = url;
+    a.click()
+  }
 }
