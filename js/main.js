@@ -4,9 +4,15 @@ var usering = false;
 var eraserEnable = false;
 var lineWidth=3;
 
-context.fillRect(25, 25, 100, 100);
-
-
+/*
+//禁止画板滚动
+document.body.ontouchstart=function(event){
+  //阻止所有默认事件
+  event.preventDefault();
+}
+*/
+context.fillStyle = "blue";
+context.fillRect(0, 0, canvas.width, canvas.height);
 
 
 

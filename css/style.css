@@ -15,6 +15,9 @@
     overflow: hidden;
 }
 #canvas{
+    position:fixed;
+    top: 0;
+    left: 0;
     background: red;
 }
 #box {
@@ -66,7 +69,7 @@ li.blue {
 /*线宽*/
 #widthBox {
     position: fixed;
-    right: 20px;
+    left: 33px;
     bottom: 20px;
 }
 #widthBox>label{vertical-align: top}
