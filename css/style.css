@@ -74,3 +74,22 @@ li.blue {
     bottom: 20px;
 }
 #widthBox>label{vertical-align: top}
+/*滤镜*/
+.filterBox{
+    position:fixed;
+    right: 33px;
+    bottom: 21px;
+    padding: 5px;
+}
+.filterBox>span{
+    padding:4px;
+    border-radius: 13px;
+}
+.filterBox>span:nth-child(1) {
+    background: rgba(255, 255, 0, 0.2);
+    box-shadow: 0 0 1px 2px #ccc;
+}
+.filterBox>span:nth-child(2) {
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 1px 2px #ccc;
+}

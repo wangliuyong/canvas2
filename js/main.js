@@ -12,8 +12,11 @@ document.body.ontouchstart=function(event){
 }
 */
 
+
 /*1.画布大小 */
 setCanvasSize(canvas);
+/*1.1画布背景颜色*/
+fillBackground("#fff");
 /*2鼠标活动 */
 listernUser(canvas);
 /*3.橡皮擦画笔切换 */
@@ -26,6 +29,8 @@ changeLineWidth();
 clearScreen(canvas);
 /*7.保存画板*/
 saveCanvas();
+/* 滤镜*/
+filter();
 
 /************************************** 封装的函数 *********** */
 //1.获取元素
@@ -194,10 +199,26 @@ function saveCanvas() {
 		document.body.appendChild(a);
 		a.download = "myCanvas";
 		a.href = url;
-		a.target="_blank";
 		a.click()
 	}
 }
-//Draw Canvas Fill mode
-context.fillStyle = "#fff";
-context.fillRect(0, 0, canvas.width, canvas.height);
+//12.Draw Canvas Fill mode
+function fillBackground(color) {
+	context.fillStyle = color;
+	context.fillRect(0, 0, canvas.width, canvas.height);
+}
+//13.filter
+
+function filter(){
+	var fugu = byId('fugu');
+	var meibai = byId('meibai');
+	fugu.onclick = function () {
+		context.fillStyle = "rgba(255, 255, 0, 0.1)";
+		context.fillRect(0, 0, canvas.width, canvas.height);
+	}
+	meibai.onclick = function () {
+		context.fillStyle = "rgba(255,255,255,0.1)";
+		context.fillRect(0, 0, canvas.width, canvas.height);
+	};
+}
+
